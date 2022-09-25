@@ -1,4 +1,4 @@
-# On-demand-Traffic-Light-Control
+# On-demand Traffic Light Control
 A traffic light control system built with AVR ATMEGA32 microcontroller
 
 ## The Schematic used
