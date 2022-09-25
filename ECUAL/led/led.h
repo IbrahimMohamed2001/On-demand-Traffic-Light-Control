@@ -26,6 +26,7 @@ typedef enum EN_LED_ERROR {
     INVALID_LED_PIN,
 } EN_LED_ERROR;
 
+// led.c file
 
 EN_LED_ERROR LED_init(uint8_t ledPort, uint8_t ledPin);
 
@@ -34,5 +35,15 @@ EN_LED_ERROR LED_ON(uint8_t ledPort, uint8_t ledPin);
 EN_LED_ERROR LED_OFF(uint8_t ledPort, uint8_t ledPin);
 
 EN_LED_ERROR LED_toggle(uint8_t ledPort, uint8_t ledPin);
+
+// LED_test.c file
+
+void LED_init_test();
+
+void LED_ON_test();
+
+void LED_OFF_test();
+
+void LED_toggle_test();
 
 #endif /* LED_H_ */

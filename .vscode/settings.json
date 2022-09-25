@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "_std_types_defs.h": "c",
-        "_bit_math.h": "c"
+        "_bit_math.h": "c",
+        "_reg.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

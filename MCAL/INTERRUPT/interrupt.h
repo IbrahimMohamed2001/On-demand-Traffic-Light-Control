@@ -34,6 +34,12 @@ typedef enum EN_INTERRUPT_ERROR {
     INVALID_SENSE_CONTROL
 } EN_INTERRUPT_ERROR;
 
+// interrupt.c file
+
 EN_INTERRUPT_ERROR EXT_INT_init(ST_EXT_INT_t * interrupt);
+
+// INTERRUPT_test.c file
+
+void EXT_INT_init_test();
 
 #endif /* INTERRUPT_H_ */

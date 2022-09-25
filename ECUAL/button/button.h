@@ -26,10 +26,20 @@ typedef enum EN_BUTTON_ERROR {
     INVALID_BUTTON_PIN,
 } EN_BUTTON_ERROR;
 
+// button.c file
+
 EN_BUTTON_ERROR BUTTON_init(uint8_t buttonPort, uint8_t buttonPin);
 
 EN_BUTTON_ERROR internalPullUp(uint8_t buttonPort, uint8_t buttonPin);
 
 EN_BUTTON_ERROR BUTTON_read(uint8_t buttonPort, uint8_t buttonPin, uint8_t * buttonState);
+
+// BUTTON_test.c file
+
+void BUTTON_init_test();
+
+void internalPullUp_test();
+
+void BUTTON_read_test();
 
 #endif /* BUTTON_H_ */

@@ -36,6 +36,8 @@ typedef enum EN_TIMER_ERROR {
     INVALID_INTERRUPT_MODE
 } EN_TIMER_ERROR;
 
+// timer.c file
+
 EN_TIMER_ERROR timer_init(ST_TIMER_t * timer);
 
 EN_TIMER_ERROR delay_start(uint8_t timer, uint16_t delay_ms, uint16_t prescaler);
@@ -47,5 +49,17 @@ uint16_t get_timer_value(uint8_t timer);
 EN_TIMER_ERROR stopwatch_start(ST_TIMER_t * timer);
 
 EN_TIMER_ERROR stopwatch_stop(ST_TIMER_t * timer, uint16_t * valueRead);
+
+// TIMER_test.c file 
+
+void timer_init_test();
+
+void delay_start_test();
+
+void delay_stop_test();
+
+void stopwatch_start_test();
+
+void stopwatch_stop_test();
 
 #endif /* TIMER_H_ */
