@@ -40,6 +40,8 @@ EN_DIO_ERROR DIO_init(uint8_t port, uint8_t pin, uint8_t direction){
 			}
 		} else return INVALID_DIR;
 	} else return INVALID_PIN;
+
+	return DIO_OK;
 }
 
 EN_DIO_ERROR DIO_write(uint8_t port, uint8_t pin, uint8_t value){
@@ -66,6 +68,8 @@ EN_DIO_ERROR DIO_write(uint8_t port, uint8_t pin, uint8_t value){
 			}
 		} else return INVALID_VALUE;
 	} else return INVALID_PIN;
+
+	return DIO_OK;
 }
 
 EN_DIO_ERROR DIO_toggle(uint8_t port, uint8_t pin){
@@ -80,6 +84,8 @@ EN_DIO_ERROR DIO_toggle(uint8_t port, uint8_t pin){
 			default: return INVALID_PORT;
 		}
 	} else return INVALID_PIN;
+
+	return DIO_OK;
 }
 
 EN_DIO_ERROR DIO_read(uint8_t port, uint8_t pin, uint8_t * valueRead){
@@ -96,4 +102,5 @@ EN_DIO_ERROR DIO_read(uint8_t port, uint8_t pin, uint8_t * valueRead){
 		}
 	} else return INVALID_PIN; // wrong Port or Pin
 
+	return DIO_OK;
 }

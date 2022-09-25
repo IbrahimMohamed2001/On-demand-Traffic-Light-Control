@@ -32,15 +32,20 @@ typedef struct ST_TIMER_t {
 typedef enum EN_TIMER_ERROR {
     TIMER_OK = 0,
     INVALID_TIMER_SELECT,
-    INVALID_PRESCALER
+    INVALID_PRESCALER,
+    INVALID_INTERRUPT_MODE
 } EN_TIMER_ERROR;
 
-void timer_init(ST_TIMER_t * timer);
+EN_TIMER_ERROR timer_init(ST_TIMER_t * timer);
 
-void delay_start(uint8_t timer, uint16_t delay_ms, uint16_t prescaler);
+EN_TIMER_ERROR delay_start(uint8_t timer, uint16_t delay_ms, uint16_t prescaler);
 
-void delay_stop(uint8_t timer);
+EN_TIMER_ERROR delay_stop(uint8_t timer);
 
 uint16_t get_timer_value(uint8_t timer);
+
+EN_TIMER_ERROR stopwatch_start(ST_TIMER_t * timer);
+
+EN_TIMER_ERROR stopwatch_stop(ST_TIMER_t * timer, uint16_t * valueRead);
 
 #endif /* TIMER_H_ */

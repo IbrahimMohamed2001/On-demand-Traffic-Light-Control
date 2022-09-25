@@ -118,7 +118,7 @@ typedef unsigned char bool;
 
 #define OVF_MODE 0
 #define CMP_MODE 1
-#define NONE 3
+#define NONE 2
 
 /************************************************************************/
 /*                       Prescaler Value Options                        */

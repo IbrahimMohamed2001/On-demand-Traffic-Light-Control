@@ -55,6 +55,7 @@ EN_INTERRUPT_ERROR EXT_INT_init(ST_EXT_INT_t * interrupt){
                 case ANY_LOGICAL_CHANGE: SET_BIT(MCUCR_Reg, 0); break;
                 case FALLING_EDGE: SET_BIT(MCUCR_Reg, 1); break;
                 case RISING_EDGE: MCUCR_Reg |= 0x03; break;
+                default: return INVALID_SENSE_CONTROL;
             }
             break;
         case INTERRUPT1:
@@ -64,6 +65,7 @@ EN_INTERRUPT_ERROR EXT_INT_init(ST_EXT_INT_t * interrupt){
                 case ANY_LOGICAL_CHANGE: SET_BIT(MCUCR_Reg, 2); break;
                 case FALLING_EDGE: SET_BIT(MCUCR_Reg, 3); break;
                 case RISING_EDGE: MCUCR_Reg |= 0x0C; break;
+                default: return INVALID_SENSE_CONTROL;
             }
             break;
         case INTERRUPT2:
@@ -71,10 +73,13 @@ EN_INTERRUPT_ERROR EXT_INT_init(ST_EXT_INT_t * interrupt){
             switch (interrupt->senseControl) {
                 case RISING_EDGE: SET_BIT(MCUCSR_Reg, 6); break;
                 case FALLING_EDGE: CLR_BIT(MCUCSR_Reg, 6); break;
+                default: return INVALID_SENSE_CONTROL;
             }
             break;
+        default: return INVALID_INTERRUPT_SELECT;
     }
     set_INT_FUN(interrupt);
+    return INTERRUPT_OK;
 }
 
 //////////////////////////////////////////////////////////////////////////

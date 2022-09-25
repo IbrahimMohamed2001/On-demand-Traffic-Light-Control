@@ -40,8 +40,8 @@ uint8_t cars_state = CARS_GREEN_STATE;
 void button_INT_fun(void); // interrupt function of the button
 void blinking_leds(); // blinking function => blinks a yellow leds for 5 seconds
 
-volatile ST_TIMER_t timer1 = {TIMER1, PRESCALER_1024, NONE};
-volatile ST_EXT_INT_t interrupt = {INTERRUPT0, RISING_EDGE, &button_INT_fun};
+volatile ST_TIMER_t timer1 = {TIMER1, PRESCALER_1024, NONE, NULLPTR};
+volatile ST_EXT_INT_t interrupt = {INTERRUPT0, RISING_EDGE, & button_INT_fun};
 
 void app_init() {
 	LED_init(CARS, GREEN);
