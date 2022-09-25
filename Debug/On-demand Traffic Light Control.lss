@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000001c0  00000000  00000000  0000182c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000019ce  00000000  00000000  000019ec  2**0
+  6 .debug_info   000019c4  00000000  00000000  000019ec  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000ab2  00000000  00000000  000033ba  2**0
+  7 .debug_abbrev 00000aab  00000000  00000000  000033b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000133b  00000000  00000000  00003e6c  2**0
+  8 .debug_line   0000133b  00000000  00000000  00003e5b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000668  00000000  00000000  000051a8  2**2
+  9 .debug_frame  00000668  00000000  00000000  00005198  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000087b  00000000  00000000  00005810  2**0
+ 10 .debug_str    0000087b  00000000  00000000  00005800  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000018e7  00000000  00000000  0000608b  2**0
+ 11 .debug_loc    000018e7  00000000  00000000  0000607b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000178  00000000  00000000  00007972  2**0
+ 12 .debug_ranges 00000178  00000000  00000000  00007962  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -140,11 +140,11 @@ void button_INT_fun(void){
       cc:	84 e6       	ldi	r24, 0x64	; 100
       ce:	90 e0       	ldi	r25, 0x00	; 0
       d0:	0e 94 3e 07 	call	0xe7c	; 0xe7c <stopwatch_stop>
-		if (sw_timer_value > 500); /* Do Nothing */
+		if (sw_timer_value > 1000); /* Do Nothing */
       d4:	80 91 72 00 	lds	r24, 0x0072	; 0x800072 <__data_end>
       d8:	90 91 73 00 	lds	r25, 0x0073	; 0x800073 <__data_end+0x1>
-      dc:	85 3f       	cpi	r24, 0xF5	; 245
-      de:	91 40       	sbci	r25, 0x01	; 1
+      dc:	89 3e       	cpi	r24, 0xE9	; 233
+      de:	93 40       	sbci	r25, 0x03	; 3
       e0:	70 f4       	brcc	.+28     	; 0xfe <button_INT_fun+0x52>
 		else {
 			if(mode == PEDESTRIANS_MODE || cars_state == CARS_RED_STATE) return;
@@ -168,9 +168,9 @@ void button_INT_fun(void){
      104:	08 95       	ret
 
 00000106 <app_init>:
-volatile ST_TIMER_t delay_timer = {TIMER1, PRESCALER_1024, NONE, NULLPTR};
-volatile ST_TIMER_t stopwacth_timer = {TIMER0, PRESCALER_1024, OVF_MODE, &stopwacth_INT_fun};
-volatile ST_EXT_INT_t interrupt = {INTERRUPT0, ANY_LOGICAL_CHANGE, & button_INT_fun};
+ST_TIMER_t delay_timer = {TIMER1, PRESCALER_1024, NONE, NULLPTR};
+ST_TIMER_t stopwacth_timer = {TIMER0, PRESCALER_1024, OVF_MODE, &stopwacth_INT_fun};
+ST_EXT_INT_t interrupt = {INTERRUPT0, ANY_LOGICAL_CHANGE, & button_INT_fun};
 
 void app_init() {
 	LED_init(CARS, GREEN);
@@ -247,9 +247,9 @@ void blinking_leds() {
      178:	d0 e0       	ldi	r29, 0x00	; 0
      17a:	49 81       	ldd	r20, Y+1	; 0x01
      17c:	5a 81       	ldd	r21, Y+2	; 0x02
-     17e:	88 81       	ld	r24, Y
-     180:	64 ef       	ldi	r22, 0xF4	; 244
-     182:	71 e0       	ldi	r23, 0x01	; 1
+     17e:	64 ef       	ldi	r22, 0xF4	; 244
+     180:	71 e0       	ldi	r23, 0x01	; 1
+     182:	88 81       	ld	r24, Y
      184:	0e 94 ca 04 	call	0x994	; 0x994 <delay_start>
 		delay_stop(delay_timer.timerSelect);
      188:	88 81       	ld	r24, Y
@@ -323,9 +323,9 @@ void app_start() {
      1e4:	d0 e0       	ldi	r29, 0x00	; 0
      1e6:	49 81       	ldd	r20, Y+1	; 0x01
      1e8:	5a 81       	ldd	r21, Y+2	; 0x02
-     1ea:	88 81       	ld	r24, Y
-     1ec:	68 e8       	ldi	r22, 0x88	; 136
-     1ee:	73 e1       	ldi	r23, 0x13	; 19
+     1ea:	68 e8       	ldi	r22, 0x88	; 136
+     1ec:	73 e1       	ldi	r23, 0x13	; 19
+     1ee:	88 81       	ld	r24, Y
      1f0:	0e 94 ca 04 	call	0x994	; 0x994 <delay_start>
 			delay_stop(delay_timer.timerSelect);
      1f4:	88 81       	ld	r24, Y
@@ -381,9 +381,9 @@ void app_start() {
 			delay_start(delay_timer.timerSelect, 5000, delay_timer.prescaler);
      24c:	49 81       	ldd	r20, Y+1	; 0x01
      24e:	5a 81       	ldd	r21, Y+2	; 0x02
-     250:	88 81       	ld	r24, Y
-     252:	68 e8       	ldi	r22, 0x88	; 136
-     254:	73 e1       	ldi	r23, 0x13	; 19
+     250:	68 e8       	ldi	r22, 0x88	; 136
+     252:	73 e1       	ldi	r23, 0x13	; 19
+     254:	88 81       	ld	r24, Y
      256:	0e 94 ca 04 	call	0x994	; 0x994 <delay_start>
 			delay_stop(delay_timer.timerSelect);
      25a:	88 81       	ld	r24, Y
@@ -484,9 +484,9 @@ void app_start() {
      2fe:	d0 e0       	ldi	r29, 0x00	; 0
      300:	49 81       	ldd	r20, Y+1	; 0x01
      302:	5a 81       	ldd	r21, Y+2	; 0x02
-     304:	88 81       	ld	r24, Y
-     306:	68 e8       	ldi	r22, 0x88	; 136
-     308:	73 e1       	ldi	r23, 0x13	; 19
+     304:	68 e8       	ldi	r22, 0x88	; 136
+     306:	73 e1       	ldi	r23, 0x13	; 19
+     308:	88 81       	ld	r24, Y
      30a:	0e 94 ca 04 	call	0x994	; 0x994 <delay_start>
 				delay_stop(delay_timer.timerSelect);
      30e:	88 81       	ld	r24, Y

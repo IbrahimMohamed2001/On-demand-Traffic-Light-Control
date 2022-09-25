@@ -763,25 +763,25 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x19ce
+.debug_info     0x00000000     0x19c4
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_info    0x000004e6      0x7f9 Application/app.o
- .debug_info    0x00000cdf      0x29b ECUAL/led/led.o
- .debug_info    0x00000f7a       0xb4 main.o
- .debug_info    0x0000102e      0x1c5 MCAL/DIO/DIO.o
- .debug_info    0x000011f3      0x1c1 MCAL/INTERRUPT/interrupt.o
- .debug_info    0x000013b4      0x61a MCAL/TIMERS/timer.o
+ .debug_info    0x000004e6      0x7ef Application/app.o
+ .debug_info    0x00000cd5      0x29b ECUAL/led/led.o
+ .debug_info    0x00000f70       0xb4 main.o
+ .debug_info    0x00001024      0x1c5 MCAL/DIO/DIO.o
+ .debug_info    0x000011e9      0x1c1 MCAL/INTERRUPT/interrupt.o
+ .debug_info    0x000013aa      0x61a MCAL/TIMERS/timer.o
 
-.debug_abbrev   0x00000000      0xab2
+.debug_abbrev   0x00000000      0xaab
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_abbrev  0x000004a3      0x166 Application/app.o
- .debug_abbrev  0x00000609       0xab ECUAL/led/led.o
- .debug_abbrev  0x000006b4       0x65 main.o
- .debug_abbrev  0x00000719       0x9a MCAL/DIO/DIO.o
- .debug_abbrev  0x000007b3       0xed MCAL/INTERRUPT/interrupt.o
- .debug_abbrev  0x000008a0      0x212 MCAL/TIMERS/timer.o
+ .debug_abbrev  0x000004a3      0x15f Application/app.o
+ .debug_abbrev  0x00000602       0xab ECUAL/led/led.o
+ .debug_abbrev  0x000006ad       0x65 main.o
+ .debug_abbrev  0x00000712       0x9a MCAL/DIO/DIO.o
+ .debug_abbrev  0x000007ac       0xed MCAL/INTERRUPT/interrupt.o
+ .debug_abbrev  0x00000899      0x212 MCAL/TIMERS/timer.o
 
 .debug_line     0x00000000     0x133b
  *(.debug_line .debug_line.* .debug_line_end)
