@@ -44,9 +44,9 @@ void button_INT_fun(void); // interrupt function of the button
 void blinking_leds(); // blinking function => blinks a yellow leds for 5 seconds
 void stopwacth_INT_fun(void);
 
-volatile ST_TIMER_t delay_timer = {TIMER1, PRESCALER_1024, NONE, NULLPTR};
-volatile ST_TIMER_t stopwacth_timer = {TIMER0, PRESCALER_1024, OVF_MODE, &stopwacth_INT_fun};
-volatile ST_EXT_INT_t interrupt = {INTERRUPT0, ANY_LOGICAL_CHANGE, & button_INT_fun};
+ST_TIMER_t delay_timer = {TIMER1, PRESCALER_1024, NONE, NULLPTR};
+ST_TIMER_t stopwacth_timer = {TIMER0, PRESCALER_1024, OVF_MODE, &stopwacth_INT_fun};
+ST_EXT_INT_t interrupt = {INTERRUPT0, ANY_LOGICAL_CHANGE, & button_INT_fun};
 
 void app_init() {
 	LED_init(CARS, GREEN);
@@ -156,7 +156,7 @@ void button_INT_fun(void){
 		INT_logical_state = FALLING_EDGE;
 	}else if (INT_logical_state == FALLING_EDGE) {
 		stopwatch_stop(& stopwacth_timer, & sw_timer_value);
-		if (sw_timer_value > 500); /* Do Nothing */
+		if (sw_timer_value > 1000); /* Do Nothing */
 		else {
 			if(mode == PEDESTRIANS_MODE || cars_state == CARS_RED_STATE) return;
 			timer_flag = FALSE;
