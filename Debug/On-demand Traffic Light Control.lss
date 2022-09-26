@@ -648,13 +648,14 @@ EN_LED_ERROR LED_toggle(uint8_t ledPort, uint8_t ledPin){
 #include "./Application/app.h"
 
 int main(void) {
-	
+
     /* Replace with your application code */
 	app_init();
      39e:	0e 94 82 00 	call	0x104	; 0x104 <app_init>
 	app_start();
      3a2:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <app_start>
   
+}
      3a6:	80 e0       	ldi	r24, 0x00	; 0
      3a8:	90 e0       	ldi	r25, 0x00	; 0
      3aa:	08 95       	ret
