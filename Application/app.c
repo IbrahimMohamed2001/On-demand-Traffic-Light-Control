@@ -156,12 +156,10 @@ void button_INT_fun(void){
 		INT_logical_state = FALLING_EDGE;
 	}else if (INT_logical_state == FALLING_EDGE) {
 		stopwatch_stop(& stopwacth_timer, & sw_timer_value);
-		if (sw_timer_value > 1000); /* Do Nothing */
-		else {
+		if (sw_timer_value < 1000){
 			if(mode == PEDESTRIANS_MODE || cars_state == CARS_RED_STATE) return;
 			timer_flag = FALSE;
 			mode = PEDESTRIANS_MODE;
-			return;
 		}
 		INT_logical_state = RISING_EDGE;
 	}
