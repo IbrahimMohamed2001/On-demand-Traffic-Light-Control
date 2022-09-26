@@ -28,7 +28,7 @@ void LED_ON_test () {
 }
 
 void LED_OFF_test () {
-    EN_LED_ERROR error = LED_OFF(); // the right way
+    EN_LED_ERROR error = LED_OFF(PORTB, PIN3); // the right way
 
     // the wrong ways
 
@@ -38,7 +38,7 @@ void LED_OFF_test () {
 }
 
 void LED_toggle_test () {
-    EN_LED_ERROR error = LED_toggle(); // the right way
+    EN_LED_ERROR error = LED_toggle(PORTB, PIN3); // the right way
 
     // the wrong ways
 

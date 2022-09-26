@@ -17,9 +17,9 @@ void EXT_INT_init_test () {
 
     // the wrong ways 
 
-    interrupt = {.interruptPinSelect = 16, .senseControl = RISING_EDGE, & EXT_INT_fun}; 
-    error = EXT_INT_init(& interrupt); // interruptPinSelect exceeds the limits [INTERRUPT0, INTERRUPT1, INTERRUPT2]
+    interrupt.interruptPinSelect = 16; // interruptPinSelect exceeds the limits [INTERRUPT0, INTERRUPT1, INTERRUPT2]
+    error = EXT_INT_init(& interrupt);
 
-    interrupt = {.interruptPinSelect = INTERRUPT0, .senseControl = 14, & EXT_INT_fun};
-    error = EXT_INT_init(& interrupt); // senseControl exceeds the limits [RISING_EDGE, FALLING_EDGE, LOW_LEVEL, ANY_LOGICAL_CHANGE]
+    interrupt.senseControl = 14;  // senseControl exceeds the limits [RISING_EDGE, FALLING_EDGE, LOW_LEVEL, ANY_LOGICAL_CHANGE]
+    error = EXT_INT_init(& interrupt);
 }

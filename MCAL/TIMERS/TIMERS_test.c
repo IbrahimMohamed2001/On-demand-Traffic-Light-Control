@@ -23,10 +23,10 @@ void timer_init_test () {
 
     // the wrong ways
 
-    timer = {.timerSelect = 30, .prescaler = NO_PRESCALER, .interrupt_mode = NONE, .callbackFunction = NULLPTR};
+    timer.timerSelect = 30;
     error = timer_init(& timer); // timerSelect exceeds limits [TIMER0, TIMER1, TIMER2]
 
-    timer = {.timerSelect = TIMER0, .prescaler = NO_PRESCALER, .interrupt_mode = 13, .callbackFunction = NULLPTR};
+    timer.interrupt_mode = 13;
     error = timer_init(& timer); // interrupt_mode exceeds limits [OVF_MODE, CMP_MODE, NONE]
 
 }
@@ -60,14 +60,14 @@ void stopwatch_start_test () {
 
     // the wrong ways
 
-    timer = {.timerSelect = 17, .prescaler = NO_PRESCALER, .interrupt_mode = NONE, .callbackFunction = NULLPTR};
-    error = stopwatch_start(& timer); // timerSelect exceeds limits [TIMER0, TIMER1, TIMER2]
+    timer.timerSelect = 17; // timerSelect exceeds limits [TIMER0, TIMER1, TIMER2]
+    error = stopwatch_start(& timer); 
 
-    timer = {.timerSelect = TIMER0, .prescaler = PRESCALER_32, .interrupt_mode = NONE, .callbackFunction = NULLPTR}; 
-    error = stopwatch_start(& timer); // wrong prescaler option
+    timer.prescaler = PRESCALER_32; // wrong prescaler option
+    error = stopwatch_start(& timer);
 
-    timer = {.timerSelect = TIMER0, .prescaler = 44, .interrupt_mode = NONE, .callbackFunction = NULLPTR};
-    error = stopwatch_start(& timer); // wrong prescaler option
+    timer.prescaler = 44; // wrong prescaler option
+    error = stopwatch_start(& timer);
 
     // prescaler valid options for TIMERS [NO_PRESCALER, PRESCALER_8, PRESCALER_64, PRESCALER_256, PRESCALER_1024]
     // prescaler valid options for ADC [NO_PESCALER, PRESCALER_2, PRESCALER_4, PRESCALER_8, PRESCALER_16, PRESCALER_32, PRESCALER_64, PRESCALER_128]
@@ -80,7 +80,7 @@ void stopwatch_stop_test () {
 
     // the wrong way
 
-    timer = {.timerSelect = 13, .prescaler = NO_PRESCALER, .interrupt_mode = NONE, .callbackFunction = NULLPTR};
-    error = stopwatch_stop(& timer, & valueRead); // timerSelect exceeds limits [TIMER0, TIMER1, TIMER2]
+    timer.timerSelect = 13; // timerSelect exceeds limits [TIMER0, TIMER1, TIMER2]
+    error = stopwatch_stop(& timer, & valueRead); 
 
 }

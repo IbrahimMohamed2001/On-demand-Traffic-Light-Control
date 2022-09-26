@@ -145,10 +145,16 @@
     <Compile Include="ECUAL\button\button.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECUAL\button\BUTTON_test.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\led\led.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\led\led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\led\LED_test.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -160,16 +166,25 @@
     <Compile Include="MCAL\DIO\DIO.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\DIO\DIO_test.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\INTERRUPT\interrupt.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\INTERRUPT\interrupt.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\INTERRUPT\INTERRUPT_test.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\TIMERS\timer.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\TIMERS\timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMERS\TIMERS_test.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Utilities\_BIT_MATH.h">
