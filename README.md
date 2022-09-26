@@ -3,7 +3,7 @@ A traffic light control system built with AVR ATMEGA32 microcontroller
 
 ## The Schematic used
 
-![image](https://user-images.githubusercontent.com/106034477/192156301-2e9b728c-a80b-41a9-9279-790b39f94839.png)
+![image](https://user-images.githubusercontent.com/106034477/192256958-e0891440-56ae-48d1-9e2a-0ed8a9f04420.png)
 
 So we have a traffic light with a button 3 LEDs for cars and 3 LEDs for pedestrians, as when the red LED for the cars is on the green one for pedestrians is off and vice versa, when the yellow LED for cars is blinking, the yellow one for pedestrians would blink as well.
 
